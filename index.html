@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body size">
+          <form id="input-city-form">
+            <div class="row">
+              <div class="col-8">
+                <span class="form-group">
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="City..."
+                    id="searching-for-city"
+                    autocomplete="off"
+                  />
+                </span>
+              </div>
+              <div class="col-4">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="button-search shadow-sm"
+                />
+              </div>
+            </div>
+          </form>
+          <form id="current-city-button">
+            <div>
+              <input
+                type="submit"
+                value="Current City"
+                class="button-current shadow-sm"
+                id="showing-current-city"
+              />
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-6 text">
+              <h2 id="myCity"></h2>
+              <h1>
+                <span id="main-degrees"></span><span>°C </span>|<span> °F</span>
+              </h1>
+              <h2 class="main-sign" id="sign-for-weather"></h2>
+              <p id="main-weather-description"></p>
+            </div>
+            <div class="col-6 move">
+              <h2 id="current-time"></h2>
+              <div id="pressure"></div>
+              <div id="humidity"></div>
+              <div id="wind-speed"></div>
+              <hr />
+              <div class="feeling-temp">
+                <small>The temperature feels like</small>
+                <h5 class="feels-like">
+                  <span id="new-degrees"></span><span>°C </span>|<span>°F</span>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="px-1 py-1 blocks">
+            <div class="row">
+              <div class="col mx-1 day first">
+                <div>Tuesday</div>
+                <small>20/02</small>
+                <p class="sign">🌥</p>
+                <small>18°</small>
+              </div>
+              <div class="col mx-1 day">
+                <div>Wednesday</div>
+                <small>21/02</small>
+                <p class="sign">🌥</p>
+                <small>15°</small>
+              </div>
+              <div class="col mx-1 day">
+                <div>Thursday</div>
+                <small>22/02</small>
+                <p class="sign">☁️</p>
+                <small>16°</small>
+              </div>
+              <div class="col mx-1 day">
+                <div>Friday</div>
+                <small>23/02</small>
+                <p class="sign">🌥</p>
+                <small>17°</small>
+              </div>
+              <div class="col mx-1 day">
+                <div>Saturday</div>
+                <small>24/02</small>
+                <p class="sign">🌧</p>
+                <small>13°</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
