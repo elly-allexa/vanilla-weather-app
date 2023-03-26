@@ -130,3 +130,11 @@ h4,
   padding-left: 1.4rem !important;
   padding-right: -0.75rem !important;
 }
+
+.author {
+  font-weight: 500;
+}
+
+.source-link {
+  text-decoration: none;
+}
