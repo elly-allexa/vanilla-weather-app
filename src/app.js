@@ -42,7 +42,7 @@ function searchForCity(event) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#myCity").innerHTML = response.data.name;
+  let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let feelsLike = Math.round(response.data.main.feels_like);
   let pressure = response.data.main.pressure;
@@ -50,12 +50,14 @@ function showTemperature(response) {
   let wind = Math.round(response.data.wind.speed);
   let weather = response.data.weather[0].main;
   let weatherDescription = response.data.weather[0].description;
+  let myCityName = document.querySelector("#myCity");
   let mainDegrees = document.querySelector("#main-degrees");
   let newDegrees = document.querySelector("#new-degrees");
   let pressureInCity = document.querySelector("#pressure");
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
+  myCityName.innerHTML = `${city}`;
   mainDegrees.innerHTML = `${temperature}`;
   newDegrees.innerHTML = `${feelsLike}`;
   pressureInCity.innerHTML = `Pressure: ${pressure} hPa`;
