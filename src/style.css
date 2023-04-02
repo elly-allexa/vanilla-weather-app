@@ -20,6 +20,7 @@ h4,
     rgba(187, 187, 187, 0) 70.9%
   );
   padding-right: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .size {
