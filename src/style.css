@@ -109,6 +109,7 @@ h4,
   border-radius: 10px;
   border: none;
   background: #f1f5fe;
+  min-width: 100px;
 }
 
 .sign {
