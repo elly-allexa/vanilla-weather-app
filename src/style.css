@@ -13,14 +13,6 @@ h4,
   text-align: center;
 }
 
-.container {
-  position: relative;
-  display: block;
-  min-width: 600px;
-  max-width: 700px;
-  min-height: 700px;
-}
-
 .card {
   background: linear-gradient(
     359.3deg,
@@ -39,6 +31,7 @@ h4,
   max-width: 100%;
 }
 
+.container,
 .move,
 .button-search,
 .button-current,
@@ -46,6 +39,13 @@ h4,
 .right-position,
 .day {
   position: relative;
+}
+
+.container {
+  display: block;
+  min-width: 600px;
+  max-width: 700px;
+  min-height: 700px;
 }
 
 .move {
