@@ -20,7 +20,8 @@ h4,
     rgba(187, 187, 187, 0) 70.9%
   );
   padding-right: 10px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
 }
 
 .size {
@@ -44,7 +45,7 @@ h4,
 
 .container {
   display: block;
-  min-width: 600px;
+  min-width: 530px;
   max-width: 700px;
   min-height: 700px;
 }
