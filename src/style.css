@@ -93,7 +93,7 @@ h4,
   margin-top: -10px;
 }
 
-.description {
+.description::first-letter {
   text-transform: capitalize;
 }
 

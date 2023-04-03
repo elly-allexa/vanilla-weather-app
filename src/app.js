@@ -16,13 +16,6 @@ function formatDate(date) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-let now = new Date();
-let time = document.querySelector("#current-time");
-
-time.innerHTML = formatDate(now);
-
-//
-
 function defaultCity(city) {
   let apiKey = "b470bc5d0de108ed04c118836d83bcb0";
   let units = "metric";
@@ -43,6 +36,7 @@ function searchForCity(event) {
 
 function showTemperature(response) {
   let myCityName = document.querySelector("#myCity");
+  let time = document.querySelector("#current-time");
   let mainDegrees = document.querySelector("#main-degrees");
   let newDegrees = document.querySelector("#new-degrees");
   let pressureInCity = document.querySelector("#pressure");
@@ -50,6 +44,7 @@ function showTemperature(response) {
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
   let city = response.data.name;
+  let now = new Date();
   let temperature = Math.round(response.data.main.temp);
   let feelsLike = Math.round(response.data.main.feels_like);
   let pressure = response.data.main.pressure;
@@ -58,6 +53,7 @@ function showTemperature(response) {
   let weather = response.data.weather[0].main; //for icons
   let weatherDescription = response.data.weather[0].description;
   myCityName.innerHTML = `${city}`;
+  time.innerHTML = formatDate(now);
   mainDegrees.innerHTML = `${temperature}`;
   newDegrees.innerHTML = `${feelsLike}`;
   pressureInCity.innerHTML = `Pressure: ${pressure} hPa`;
