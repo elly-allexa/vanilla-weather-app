@@ -45,11 +45,12 @@ function showWeather(response) {
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
   celsiusTemperature = response.data.temperature.current;
+  feelsLikeTemperature = response.data.temperature.feels_like;
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
   let temperature = Math.round(celsiusTemperature);
-  let feelsLike = Math.round(response.data.temperature.feels_like);
+  let feelsLike = Math.round(feelsLikeTemperature);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
@@ -77,11 +78,12 @@ function showCurrentCityWeather(response) {
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
   celsiusTemperature = response.data.temperature.current;
+  feelsLikeTemperature = response.data.temperature.feels_like;
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
   let temperature = Math.round(celsiusTemperature);
-  let feelsLike = Math.round(response.data.temperature.feels_like);
+  let feelsLike = Math.round(feelsLikeTemperature);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
@@ -130,7 +132,25 @@ function showCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+function showFahrenheitFeelsLikeTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#new-degrees");
+  celsiusFeelsLiketLink.classList.remove("active");
+  fahrenheitFeelsLiketLink.classList.add("active");
+  let fahrenheitTemperature = Math.round((feelsLikeTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function showCelsiusFeelsLikeTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#new-degrees");
+  fahrenheitFeelsLiketLink.classList.remove("active");
+  celsiusFeelsLiketLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(feelsLikeTemperature);
+}
+
 let celsiusTemperature = null;
+let feelsLikeTemperature = null;
 
 let form = document.querySelector("#input-city-form");
 form.addEventListener("submit", defaultCity);
@@ -143,5 +163,19 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+let fahrenheitFeelsLiketLink = document.querySelector(
+  "#fahrenheit-feels-like-link"
+);
+fahrenheitFeelsLiketLink.addEventListener(
+  "click",
+  showFahrenheitFeelsLikeTemperature
+);
+
+let celsiusFeelsLiketLink = document.querySelector("#celsius-feels-like-link");
+celsiusFeelsLiketLink.addEventListener(
+  "click",
+  showCelsiusFeelsLikeTemperature
+);
 
 searchForCity("Odesa, Ukraine");
