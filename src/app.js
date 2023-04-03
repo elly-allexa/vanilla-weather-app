@@ -17,10 +17,10 @@ function formatDate(date) {
 }
 
 function searchForCity(city) {
-  let apiKey = "b470bc5d0de108ed04c118836d83bcb0";
+  let apiKey = "462ddfcdo6b39797fbf3801t94bacc7f";
   let units = "metric";
-  let endApiUrl = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${endApiUrl}?q=${city}&appid=${apiKey}&units=${units}`;
+  let endApiUrl = "https://api.shecodes.io/weather/v1/current";
+  let apiUrl = `${endApiUrl}?query=${city}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -36,6 +36,7 @@ function defaultCity(event) {
 
 function showTemperature(response) {
   let myCityName = document.querySelector("#myCity");
+  let iconSign = document.querySelector("#icon");
   let time = document.querySelector("#current-time");
   let mainDegrees = document.querySelector("#main-degrees");
   let newDegrees = document.querySelector("#new-degrees");
@@ -43,16 +44,18 @@ function showTemperature(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
-  let city = response.data.name;
+  let city = response.data.city;
+  let icon = response.data.condition.icon_url;
   let now = new Date();
-  let temperature = Math.round(response.data.main.temp);
-  let feelsLike = Math.round(response.data.main.feels_like);
-  let pressure = response.data.main.pressure;
-  let humidity = response.data.main.humidity;
+  let temperature = Math.round(response.data.temperature.current);
+  let feelsLike = Math.round(response.data.temperature.feels_like);
+  let pressure = response.data.temperature.pressure;
+  let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
-  let weather = response.data.weather[0].main; //for icons
-  let weatherDescription = response.data.weather[0].description;
+  let weatherDescription = response.data.condition.description;
   myCityName.innerHTML = `${city}`;
+  iconSign.setAttribute("src", `${icon}`);
+  iconSign.setAttribute("alt", weatherDescription);
   time.innerHTML = formatDate(now);
   mainDegrees.innerHTML = `${temperature}`;
   newDegrees.innerHTML = `${feelsLike}`;
@@ -60,42 +63,11 @@ function showTemperature(response) {
   humidityInCity.innerHTML = `Humidity: ${humidity}%`;
   windInCity.innerHTML = `Wind: ${wind} km/h`;
   mainWeather.innerHTML = `${weatherDescription}`;
-
-  let thunderstorm = "⛈";
-  let drizzle = "🌨";
-  let rain = "🌧";
-  let snow = "❄️";
-  let clouds = "🌥";
-  let clear = "☀️";
-
-  if (weather !== undefined) {
-    let emojiWeather = document.querySelector("#sign-for-weather");
-    if (weather === "Clouds") {
-      emojiWeather.innerHTML = `${clouds}`;
-    }
-    if (weather === "Clear") {
-      emojiWeather.innerHTML = `${clear}`;
-    }
-    if (weather === "Thunderstorm") {
-      emojiWeather.innerHTML = `${thunderstorm}`;
-    }
-    if (weather === "Drizzle") {
-      emojiWeather.innerHTML = `${drizzle}`;
-    }
-    if (weather === "Rain") {
-      emojiWeather.innerHTML = `${rain}`;
-    }
-    if (weather === "Snow") {
-      emojiWeather.innerHTML = `${snow}`;
-    }
-  } else {
-    let emojiWeather = document.querySelector("#sign-for-weather");
-    emojiWeather.innerHTML = `${clouds}`;
-  }
 }
 
 function showCurrentCityWeather(response) {
   let myCityName = document.querySelector("#myCity");
+  let iconSign = document.querySelector("#icon");
   let time = document.querySelector("#current-time");
   let mainDegrees = document.querySelector("#main-degrees");
   let newDegrees = document.querySelector("#new-degrees");
@@ -103,16 +75,18 @@ function showCurrentCityWeather(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
-  let city = response.data.name;
+  let city = response.data.city;
+  let icon = response.data.condition.icon_url;
   let now = new Date();
-  let temperature = Math.round(response.data.main.temp);
-  let feelsLike = Math.round(response.data.main.feels_like);
-  let pressure = response.data.main.pressure;
-  let humidity = response.data.main.humidity;
+  let temperature = Math.round(response.data.temperature.current);
+  let feelsLike = Math.round(response.data.temperature.feels_like);
+  let pressure = response.data.temperature.pressure;
+  let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
-  let weather = response.data.weather[0].main; //for icons
-  let weatherDescription = response.data.weather[0].description;
+  let weatherDescription = response.data.condition.description;
   myCityName.innerHTML = `${city}`;
+  iconSign.setAttribute("src", `${icon}`);
+  iconSign.setAttribute("alt", weatherDescription);
   time.innerHTML = formatDate(now);
   mainDegrees.innerHTML = `${temperature}`;
   newDegrees.innerHTML = `${feelsLike}`;
@@ -120,38 +94,6 @@ function showCurrentCityWeather(response) {
   humidityInCity.innerHTML = `Humidity: ${humidity}%`;
   windInCity.innerHTML = `Wind: ${wind} km/h`;
   mainWeather.innerHTML = `${weatherDescription}`;
-
-  let thunderstorm = "⛈";
-  let drizzle = "🌨";
-  let rain = "🌧";
-  let snow = "❄️";
-  let clouds = "🌥";
-  let clear = "☀️";
-
-  if (weather !== undefined) {
-    let emojiWeather = document.querySelector("#sign-for-weather");
-    if (weather === "Clouds") {
-      emojiWeather.innerHTML = `${clouds}`;
-    }
-    if (weather === "Clear") {
-      emojiWeather.innerHTML = `${clear}`;
-    }
-    if (weather === "Thunderstorm") {
-      emojiWeather.innerHTML = `${thunderstorm}`;
-    }
-    if (weather === "Drizzle") {
-      emojiWeather.innerHTML = `${drizzle}`;
-    }
-    if (weather === "Rain") {
-      emojiWeather.innerHTML = `${rain}`;
-    }
-    if (weather === "Snow") {
-      emojiWeather.innerHTML = `${snow}`;
-    }
-  } else {
-    let emojiWeather = document.querySelector("#sign-for-weather");
-    emojiWeather.innerHTML = `${clouds}`;
-  }
 }
 
 function getCurrentPosition(event) {
@@ -160,12 +102,12 @@ function getCurrentPosition(event) {
 }
 
 function showPosition(position) {
-  let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiKey = "b470bc5d0de108ed04c118836d83bcb0";
+  let latitude = position.coords.latitude;
+  let apiKey = "462ddfcdo6b39797fbf3801t94bacc7f";
   let units = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
+  let apiUrl = `${apiEndpoint}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showCurrentCityWeather);
 }
