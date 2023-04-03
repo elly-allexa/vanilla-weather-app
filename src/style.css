@@ -93,6 +93,21 @@ h4,
   padding-right: 5px;
 }
 
+.main-temp {
+  font-size: 40px;
+}
+
+.celsius-link-style,
+.fahrenheit-link-style {
+  text-decoration: none;
+}
+
+.units {
+  font-size: 25px;
+  position: relative;
+  top: -12px;
+}
+
 .main-sign {
   font-size: 50px;
   margin-top: -10px;

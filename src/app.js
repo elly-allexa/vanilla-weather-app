@@ -44,10 +44,11 @@ function showWeather(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
+  celsiusTemperature = response.data.temperature.current;
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
-  let temperature = Math.round(response.data.temperature.current);
+  let temperature = Math.round(celsiusTemperature);
   let feelsLike = Math.round(response.data.temperature.feels_like);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
@@ -75,10 +76,11 @@ function showCurrentCityWeather(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
+  celsiusTemperature = response.data.temperature.current;
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
-  let temperature = Math.round(response.data.temperature.current);
+  let temperature = Math.round(celsiusTemperature);
   let feelsLike = Math.round(response.data.temperature.feels_like);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
@@ -108,14 +110,34 @@ function showPosition(position) {
   let units = "metric";
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let apiUrl = `${apiEndpoint}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
-
   axios.get(apiUrl).then(showCurrentCityWeather);
 }
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#main-degrees");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#main-degrees");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#input-city-form");
 form.addEventListener("submit", defaultCity);
 
 let button = document.querySelector("#current-city-button");
 button.addEventListener("click", getCurrentPosition);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 searchForCity("Odesa, Ukraine");
