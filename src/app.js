@@ -16,7 +16,7 @@ function formatDate(date) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-function defaultCity(city) {
+function searchForCity(city) {
   let apiKey = "b470bc5d0de108ed04c118836d83bcb0";
   let units = "metric";
   let endApiUrl = "https://api.openweathermap.org/data/2.5/weather";
@@ -24,13 +24,13 @@ function defaultCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function searchForCity(event) {
+function defaultCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#searching-for-city").value;
   if (!searchInput || searchInput === undefined) {
     alert("Please, enter your city ☁️💫");
   } else {
-    defaultCity(searchInput);
+    searchForCity(searchInput);
   }
 }
 
@@ -171,9 +171,9 @@ function showPosition(position) {
 }
 
 let form = document.querySelector("#input-city-form");
-form.addEventListener("submit", searchForCity);
+form.addEventListener("submit", defaultCity);
 
 let button = document.querySelector("#current-city-button");
 button.addEventListener("click", getCurrentPosition);
 
-defaultCity("Odesa, Ukraine");
+searchForCity("Odesa, Ukraine");
