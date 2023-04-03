@@ -116,6 +116,8 @@ function showPosition(position) {
 function showFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-degrees");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
@@ -123,6 +125,8 @@ function showFahrenheitTemperature(event) {
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-degrees");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 

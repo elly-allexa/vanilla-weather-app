@@ -97,14 +97,23 @@ h4,
   font-size: 40px;
 }
 
-.celsius-link-style,
-.fahrenheit-link-style {
+.celsius-link-style {
+  cursor: default;
+}
+
+.active {
+  color: #272044;
+  cursor: default;
+}
+
+.fahrenheit-link-style,
+.celsius-link-style {
   text-decoration: none;
 }
 
 .units {
-  font-size: 25px;
   position: relative;
+  font-size: 25px;
   top: -12px;
 }
 
