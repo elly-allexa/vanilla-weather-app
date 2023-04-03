@@ -21,7 +21,7 @@ function searchForCity(city) {
   let units = "metric";
   let endApiUrl = "https://api.shecodes.io/weather/v1/current";
   let apiUrl = `${endApiUrl}?query=${city}&key=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showWeather);
 }
 
 function defaultCity(event) {
@@ -34,7 +34,7 @@ function defaultCity(event) {
   }
 }
 
-function showTemperature(response) {
+function showWeather(response) {
   let myCityName = document.querySelector("#myCity");
   let iconSign = document.querySelector("#icon");
   let time = document.querySelector("#current-time");
