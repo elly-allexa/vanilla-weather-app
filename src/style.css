@@ -128,10 +128,6 @@ h4,
   margin-top: -3px;
 }
 
-.right-position {
-  left: 253px;
-}
-
 .day {
   margin-top: 10px;
   padding: 10px 7px;
@@ -158,8 +154,13 @@ h4,
 }
 
 .px-1 {
-  padding-left: 1.4rem !important;
-  padding-right: -0.75rem !important;
+  padding-left: 1.7rem !important;
+}
+
+.mx-1 {
+  max-width: 190px;
+  position: relative;
+  right: 30.25rem !important;
 }
 
 .author {

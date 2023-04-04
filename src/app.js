@@ -16,6 +16,79 @@ function formatDate(date) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col mx-1 day">
+        <div>Tuesday</div>
+        <small>20/02</small>
+        <p class="sign">🌥</p>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min"> 12°</span>
+        </div>
+      </div>
+  `;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col mx-1 day">
+        <div>Tuesday</div>
+        <small>20/02</small>
+        <p class="sign">🌥</p>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min"> 12°</span>
+        </div>
+      </div>
+  `;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col mx-1 day">
+        <div>Tuesday</div>
+        <small>20/02</small>
+        <p class="sign">🌥</p>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min"> 12°</span>
+        </div>
+      </div>
+  `;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col mx-1 day">
+        <div>Tuesday</div>
+        <small>20/02</small>
+        <p class="sign">🌥</p>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min"> 12°</span>
+        </div>
+      </div>
+  `;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col mx-1 day">
+        <div>Tuesday</div>
+        <small>20/02</small>
+        <p class="sign">🌥</p>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min"> 12°</span>
+        </div>
+      </div>
+  `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchForCity(city) {
   let apiKey = "462ddfcdo6b39797fbf3801t94bacc7f";
   let units = "metric";
@@ -179,3 +252,5 @@ celsiusFeelsLiketLink.addEventListener(
 );
 
 searchForCity("Odesa, Ukraine");
+
+showForecast();
