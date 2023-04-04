@@ -16,7 +16,8 @@ function formatDate(date) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -41,9 +42,9 @@ function showForecast() {
 }
 
 function searchForCity(city) {
-  let apiKey = "462ddfcdo6b39797fbf3801t94bacc7f";
-  let units = "metric";
-  let endApiUrl = "https://api.shecodes.io/weather/v1/current";
+  let apiKey = `462ddfcdo6b39797fbf3801t94bacc7f`;
+  let units = `metric`;
+  let endApiUrl = `https://api.shecodes.io/weather/v1/current`;
   let apiUrl = `${endApiUrl}?query=${city}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showWeather);
 }
@@ -58,6 +59,14 @@ function defaultCity(event) {
   }
 }
 
+function getForecast(coordinates) {
+  let apiKey = `462ddfcdo6b39797fbf3801t94bacc7f`;
+  let units = `metric`;
+  let endApiUrl = `https://api.shecodes.io/weather/v1/forecast`;
+  let apiUrl = `${endApiUrl}?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showWeather(response) {
   let myCityName = document.querySelector("#myCity");
   let iconSign = document.querySelector("#icon");
@@ -68,8 +77,10 @@ function showWeather(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
+
   celsiusTemperature = response.data.temperature.current;
   feelsLikeTemperature = response.data.temperature.feels_like;
+
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
@@ -89,6 +100,8 @@ function showWeather(response) {
   humidityInCity.innerHTML = `Humidity: ${humidity}%`;
   windInCity.innerHTML = `Wind: ${wind} km/h`;
   mainWeather.innerHTML = `${weatherDescription}`;
+
+  getForecast(response.data.coordinates);
 }
 
 function showCurrentCityWeather(response) {
@@ -101,8 +114,10 @@ function showCurrentCityWeather(response) {
   let humidityInCity = document.querySelector("#humidity");
   let windInCity = document.querySelector("#wind-speed");
   let mainWeather = document.querySelector("#main-weather-description");
+
   celsiusTemperature = response.data.temperature.current;
   feelsLikeTemperature = response.data.temperature.feels_like;
+
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
@@ -132,9 +147,9 @@ function getCurrentPosition(event) {
 function showPosition(position) {
   let longitude = position.coords.longitude;
   let latitude = position.coords.latitude;
-  let apiKey = "462ddfcdo6b39797fbf3801t94bacc7f";
-  let units = "metric";
-  let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
+  let apiKey = `462ddfcdo6b39797fbf3801t94bacc7f`;
+  let units = `metric`;
+  let apiEndpoint = `https://api.shecodes.io/weather/v1/current`;
   let apiUrl = `${apiEndpoint}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentCityWeather);
 }
@@ -203,5 +218,3 @@ celsiusFeelsLiketLink.addEventListener(
 );
 
 searchForCity("Odesa, Ukraine");
-
-showForecast();
