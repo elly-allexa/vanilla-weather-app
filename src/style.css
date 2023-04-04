@@ -36,7 +36,6 @@ h4,
 .move,
 .button-search,
 .button-current,
-.text,
 .right-position,
 .day,
 .mx-1,
@@ -87,7 +86,7 @@ h4,
 }
 
 .text {
-  top: 20px;
+  margin-top: 35px;
   padding-right: 5px;
 }
 
