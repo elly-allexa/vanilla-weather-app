@@ -3,12 +3,6 @@ body {
   font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
   color: #272044;
   font-weight: 100;
-  max-width: 1200px;
-}
-
-p {
-  margin-top: -22px;
-  margin-bottom: 2rem;
 }
 
 h4,
@@ -34,8 +28,8 @@ h4,
 }
 
 .row {
-  --bs-gutter-x: 5rem;
-  max-width: 100%;
+  --bs-gutter-x: 6.2rem;
+  max-width: 103%;
 }
 
 .container,
@@ -44,7 +38,10 @@ h4,
 .button-current,
 .text,
 .right-position,
-.day {
+.day,
+.mx-1,
+.units,
+.forecast-weather {
   position: relative;
 }
 
@@ -61,6 +58,7 @@ h4,
 }
 
 .button-search {
+  left: -85px;
   padding: 5px 10px;
   right: 70px;
   border-radius: 7px;
@@ -108,7 +106,6 @@ h4,
 }
 
 .units {
-  position: relative;
   font-size: 25px;
   top: -12px;
 }
@@ -124,26 +121,32 @@ h4,
 }
 
 .feeling-temp {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   margin-top: -3px;
 }
 
 .day {
   margin-top: 10px;
-  padding: 10px 7px;
+  padding: 4px 9px;
   left: 25px;
   border-radius: 10px;
   border: none;
   background: #f1f5fe;
 }
 
+.forecast-weather {
+  width: 80px;
+  margin-left: -4px;
+  margin-top: -12px;
+}
+
 .forecast-week-day {
   font-size: 19px;
 }
 
-.sign {
+.main-sign {
   font-size: 50px;
-  margin-top: -14px;
+  margin-top: -30px;
   margin-bottom: -1rem;
 }
 
@@ -162,8 +165,7 @@ h4,
 }
 
 .mx-1 {
-  max-width: 190px;
-  position: relative;
+  min-width: 50px;
   right: 30.25rem !important;
 }
 
