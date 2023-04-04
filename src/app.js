@@ -137,6 +137,8 @@ function showCurrentCityWeather(response) {
   humidityInCity.innerHTML = `Humidity: ${humidity}%`;
   windInCity.innerHTML = `Wind: ${wind} km/h`;
   mainWeather.innerHTML = `${weatherDescription}`;
+
+  getForecast(response.data.coordinates);
 }
 
 function getCurrentPosition(event) {
