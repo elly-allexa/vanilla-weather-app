@@ -16,6 +16,28 @@ function formatDate(date) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function dayMonth(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = String(date.getDay()).padStart(2, "0");
+  let months = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  let month = months[date.getMonth()];
+
+  return `${day}/${month}`;
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -25,6 +47,7 @@ function formatDay(timestamp) {
 }
 
 function showForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -35,7 +58,7 @@ function showForecast(response) {
       forecastHTML += `
       <div class="col mx-1 day">
         <div class="forecast-week-day">${formatDay(forecastDay.time)}</div>
-        <small>20/02</small>
+        <small>${dayMonth(forecastDay.time)}</small>
         <img
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
             forecastDay.condition.icon
