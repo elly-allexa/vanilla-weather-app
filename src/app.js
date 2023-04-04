@@ -20,11 +20,13 @@ function showForecast() {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
       <div class="col mx-1 day">
-        <div>Tuesday</div>
+        <div class="forecast-week-day">${day}</div>
         <small>20/02</small>
         <p class="sign">🌥</p>
         <div class="weather-forecast-temperatures">
@@ -33,58 +35,7 @@ function showForecast() {
         </div>
       </div>
   `;
-  forecastHTML =
-    forecastHTML +
-    `
-      <div class="col mx-1 day">
-        <div>Tuesday</div>
-        <small>20/02</small>
-        <p class="sign">🌥</p>
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min"> 12°</span>
-        </div>
-      </div>
-  `;
-  forecastHTML =
-    forecastHTML +
-    `
-      <div class="col mx-1 day">
-        <div>Tuesday</div>
-        <small>20/02</small>
-        <p class="sign">🌥</p>
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min"> 12°</span>
-        </div>
-      </div>
-  `;
-  forecastHTML =
-    forecastHTML +
-    `
-      <div class="col mx-1 day">
-        <div>Tuesday</div>
-        <small>20/02</small>
-        <p class="sign">🌥</p>
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min"> 12°</span>
-        </div>
-      </div>
-  `;
-  forecastHTML =
-    forecastHTML +
-    `
-      <div class="col mx-1 day">
-        <div>Tuesday</div>
-        <small>20/02</small>
-        <p class="sign">🌥</p>
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min"> 12°</span>
-        </div>
-      </div>
-  `;
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
