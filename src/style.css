@@ -147,9 +147,8 @@ h4,
   margin-bottom: -1rem;
 }
 
-.first {
-  padding: 10px;
-  display: block;
+.weather-forecast-temperature-min {
+  opacity: 0.6;
 }
 
 .feels-like {
