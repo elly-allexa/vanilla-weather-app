@@ -12,6 +12,23 @@ h4,
   text-align: center;
 }
 
+.container,
+.button-search,
+.units,
+.move,
+.mx-1,
+.day,
+.forecast-weather {
+  position: relative;
+}
+
+.container {
+  display: block;
+  min-width: 630px;
+  max-width: 800px;
+  min-height: 700px;
+}
+
 .card {
   background: linear-gradient(
     359.3deg,
@@ -32,36 +49,12 @@ h4,
   max-width: 103%;
 }
 
-.container,
-.move,
-.button-search,
-.button-current,
-.right-position,
-.day,
-.mx-1,
-.units,
-.forecast-weather {
-  position: relative;
-}
-
-.container {
-  display: block;
-  min-width: 630px;
-  max-width: 800px;
-  min-height: 700px;
-}
-
-.move {
-  right: -54px;
-  top: 20px;
-}
-
 .button-search {
   left: -85px;
   padding: 5px 10px;
   right: 70px;
-  border-radius: 7px;
   border: 1px solid #e4e2e7;
+  border-radius: 7px;
   background: #c5d7fb;
   color: #272044;
   transition: all 100ms ease-in-out;
@@ -73,8 +66,8 @@ h4,
   margin-left: 530px;
   margin-top: -38px;
   right: 24px;
-  border-radius: 7px;
   border: 1px solid #e4e2e7;
+  border-radius: 7px;
   background: #c5d7fb;
   color: #272044;
   transition: all 100ms ease-in-out;
@@ -94,47 +87,19 @@ h4,
   font-size: 40px;
 }
 
-.active {
-  color: #272044;
-  cursor: default;
-}
-
-.fahrenheit-link-style,
-.celsius-link-style {
-  text-decoration: none;
-}
-
 .units {
   font-size: 25px;
   top: -12px;
 }
 
-.description::first-letter {
-  text-transform: capitalize;
+.celsius-link-style,
+.fahrenheit-link-style {
+  text-decoration: none;
 }
 
-.feeling-temp {
-  padding-bottom: 20px;
-  margin-top: -3px;
-}
-
-.day {
-  margin-top: 10px;
-  padding: 4px 9px;
-  left: 25px;
-  border-radius: 10px;
-  border: none;
-  background: #f1f5fe;
-}
-
-.forecast-weather {
-  width: 70px;
-  margin-left: -1px;
-  margin-top: -5px;
-}
-
-.forecast-week-day {
-  font-size: 19px;
+.active {
+  color: #272044;
+  cursor: default;
 }
 
 .main-sign {
@@ -143,8 +108,18 @@ h4,
   margin-bottom: -1rem;
 }
 
-.weather-forecast-temperature-min {
-  opacity: 0.6;
+.description::first-letter {
+  text-transform: capitalize;
+}
+
+.move {
+  right: -54px;
+  top: 20px;
+}
+
+.feeling-temp {
+  padding-bottom: 20px;
+  margin-top: -3px;
 }
 
 .feels-like {
@@ -160,6 +135,29 @@ h4,
 .mx-1 {
   min-width: 50px;
   right: 30.25rem !important;
+}
+
+.day {
+  top: 10px;
+  padding: 4px 9px;
+  left: 25px;
+  border-radius: 10px;
+  border: none;
+  background: #f1f5fe;
+}
+
+.forecast-week-day {
+  font-size: 19px;
+}
+
+.forecast-weather {
+  width: 70px;
+  left: -1px;
+  top: -5px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
 }
 
 .author {
