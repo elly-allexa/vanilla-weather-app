@@ -129,7 +129,7 @@ h4,
 }
 
 .px-1 {
-  padding-left: 1.8rem !important;
+  padding-left: 1.6rem !important;
 }
 
 .mx-1 {
@@ -139,7 +139,7 @@ h4,
 
 .day {
   top: 10px;
-  padding: 4px 9px;
+  padding: 4px 0;
   left: 25px;
   border-radius: 10px;
   border: none;
@@ -151,8 +151,7 @@ h4,
 }
 
 .forecast-weather {
-  width: 70px;
-  left: -1px;
+  width: 75px;
   top: -5px;
 }
 
