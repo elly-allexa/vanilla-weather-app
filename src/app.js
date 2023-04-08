@@ -152,13 +152,13 @@ function showWeather(response) {
   let mainWeather = document.querySelector("#main-weather-description");
 
   celsiusTemperature = response.data.temperature.current;
-  feelsLikeTemperature = response.data.temperature.feels_like;
+  celsiusFeelsLikeTemperature = response.data.temperature.feels_like;
 
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
   let temperature = Math.round(celsiusTemperature);
-  let feelsLike = Math.round(feelsLikeTemperature);
+  let feelsLike = Math.round(celsiusFeelsLikeTemperature);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
@@ -189,13 +189,13 @@ function showCurrentCityWeather(response) {
   let mainWeather = document.querySelector("#main-weather-description");
 
   celsiusTemperature = response.data.temperature.current;
-  feelsLikeTemperature = response.data.temperature.feels_like;
+  celsiusFeelsLikeTemperature = response.data.temperature.feels_like;
 
   let city = response.data.city;
   let icon = response.data.condition.icon_url;
   let now = new Date();
   let temperature = Math.round(celsiusTemperature);
-  let feelsLike = Math.round(feelsLikeTemperature);
+  let feelsLike = Math.round(celsiusFeelsLikeTemperature);
   let pressure = response.data.temperature.pressure;
   let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
@@ -251,7 +251,9 @@ function showFahrenheitFeelsLikeTemperature(event) {
   let temperatureElement = document.querySelector("#new-degrees");
   celsiusFeelsLiketLink.classList.remove("active");
   fahrenheitFeelsLiketLink.classList.add("active");
-  let fahrenheitTemperature = Math.round((feelsLikeTemperature * 9) / 5 + 32);
+  let fahrenheitTemperature = Math.round(
+    (celsiusFeelsLikeTemperature * 9) / 5 + 32
+  );
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
 
@@ -260,11 +262,11 @@ function showCelsiusFeelsLikeTemperature(event) {
   let temperatureElement = document.querySelector("#new-degrees");
   fahrenheitFeelsLiketLink.classList.remove("active");
   celsiusFeelsLiketLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(feelsLikeTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusFeelsLikeTemperature);
 }
 
 let celsiusTemperature = null;
-let feelsLikeTemperature = null;
+let celsiusFeelsLikeTemperature = null;
 
 let form = document.querySelector("#input-city-form");
 form.addEventListener("submit", defaultCity);
