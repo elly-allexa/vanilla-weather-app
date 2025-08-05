@@ -3,6 +3,14 @@ body {
   font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
   color: #272044;
   font-weight: 100;
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
 }
 
 h4,
@@ -24,9 +32,20 @@ h4,
 
 .container {
   display: block;
-  min-width: 630px;
+  min-width: 320px;
   max-width: 800px;
   min-height: 700px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .card {
@@ -41,6 +60,14 @@ h4,
   border-radius: 15px;
 }
 
+@media (max-width: 768px) {
+  .card {
+    margin: 0;
+    border-radius: 10px;
+    padding-right: 5px;
+  }
+}
+
 .size {
   padding-right: 0px;
 }
@@ -48,6 +75,14 @@ h4,
 .row {
   --bs-gutter-x: 6.2rem;
   max-width: 103%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    --bs-gutter-x: 1rem;
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
 .button-search {
@@ -59,6 +94,16 @@ h4,
   background: #c5d7fb;
   color: #272044;
   transition: all 100ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .button-search {
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: static;
+    margin-top: 10px;
+  }
 }
 
 .button-current {
@@ -74,6 +119,15 @@ h4,
   transition: all 100ms ease-in-out;
 }
 
+@media (max-width: 768px) {
+  .button-current {
+    position: static;
+    margin: 10px 0 0 0;
+    width: 100%;
+    right: auto;
+  }
+}
+
 .button-search:hover,
 .button-current:hover {
   background: #b4caf7;
@@ -84,13 +138,34 @@ h4,
   padding-right: 5px;
 }
 
+@media (max-width: 768px) {
+  .text {
+    margin-top: 20px;
+    padding-right: 0;
+    text-align: center;
+  }
+}
+
 .main-temp {
   font-size: 40px;
+}
+
+@media (max-width: 768px) {
+  .main-temp {
+    font-size: 32px;
+  }
 }
 
 .units {
   font-size: 25px;
   top: -12px;
+}
+
+@media (max-width: 768px) {
+  .units {
+    font-size: 20px;
+    top: -8px;
+  }
 }
 
 .celsius-link-style,
@@ -109,6 +184,13 @@ h4,
   margin-bottom: -1rem;
 }
 
+@media (max-width: 768px) {
+  .main-sign {
+    font-size: 40px;
+    margin-top: -20px;
+  }
+}
+
 .description::first-letter {
   text-transform: capitalize;
 }
@@ -116,6 +198,15 @@ h4,
 .move {
   right: -54px;
   top: 20px;
+}
+
+@media (max-width: 768px) {
+  .move {
+    right: 0;
+    top: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
 }
 
 .feeling-temp {
@@ -133,9 +224,25 @@ h4,
   padding-left: 1.6rem !important;
 }
 
+@media (max-width: 768px) {
+  .px-1 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
 .mx-1 {
   min-width: 50px;
   right: 30.25rem !important;
+}
+
+@media (max-width: 768px) {
+  .mx-1 {
+    min-width: auto;
+    right: auto !important;
+    margin: 0 2px;
+    flex: 1;
+  }
 }
 
 .day {
@@ -147,13 +254,36 @@ h4,
   background: #f1f5fe;
 }
 
+@media (max-width: 768px) {
+  .day {
+    top: 0;
+    left: 0;
+    padding: 8px 2px;
+    margin: 2px 0;
+    font-size: 12px;
+  }
+}
+
 .forecast-week-day {
   font-size: 19px;
+}
+
+@media (max-width: 768px) {
+  .forecast-week-day {
+    font-size: 14px;
+  }
 }
 
 .forecast-weather {
   width: 75px;
   top: -5px;
+}
+
+@media (max-width: 768px) {
+  .forecast-weather {
+    width: 50px;
+    top: 0;
+  }
 }
 
 .weather-forecast-temperature-min {
@@ -166,4 +296,55 @@ h4,
 
 .source-link {
   text-decoration: none;
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+  }
+  
+  .author {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-temp {
+    font-size: 28px;
+  }
+  
+  .units {
+    font-size: 18px;
+  }
+  
+  .main-sign {
+    font-size: 35px;
+  }
+  
+  .forecast-week-day {
+    font-size: 12px;
+  }
+  
+  .forecast-weather {
+    width: 40px;
+  }
+  
+  .day {
+    padding: 6px 1px;
+    font-size: 11px;
+  }
 }
